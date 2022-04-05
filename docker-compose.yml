@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mariadb:
+    image: mariadb
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: admin
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
