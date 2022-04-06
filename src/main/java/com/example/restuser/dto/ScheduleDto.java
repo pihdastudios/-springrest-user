@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class ScheduleDto {
     public long id;
-    public long filmId;
+    public FilmDto film;
     public LocalDate startDateTime;
     public LocalDate endDateTime;
     public BigDecimal ticketPrice;
@@ -14,9 +14,9 @@ public class ScheduleDto {
 
     }
 
-    public ScheduleDto(long id, long filmId, LocalDate startDateTime, LocalDate endDateTime, BigDecimal ticketPrice) {
+    public ScheduleDto(long id, FilmDto film, LocalDate startDateTime, LocalDate endDateTime, BigDecimal ticketPrice) {
         this.id = id;
-        this.filmId = filmId;
+        this.film = film;
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
         this.ticketPrice = ticketPrice;
@@ -30,12 +30,12 @@ public class ScheduleDto {
         this.id = id;
     }
 
-    public long getFilmId() {
-        return filmId;
+    public FilmDto getFilm() {
+        return film;
     }
 
-    public void setFilmId(long filmId) {
-        this.filmId = filmId;
+    public void setFilm(FilmDto film) {
+        this.film = film;
     }
 
     public LocalDate getStartDateTime() {
