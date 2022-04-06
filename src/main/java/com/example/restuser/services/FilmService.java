@@ -18,12 +18,8 @@ public class FilmService {
     FilmRepository filmRepository;
 
     public void saveFilm(FilmDto filmDto) {
-        var film = new Film(filmDto.getId(), filmDto.getName(), filmDto.isShowing(), null);
-        var schedules = new ArrayList<Schedule>();
-        filmDto.getSchedules().forEach(schedule -> {
-            schedules.add(new Schedule(schedule.getId(), film, schedule.getStartDateTime(), schedule.getEndDateTime(), schedule.getTicketPrice()));
-        });
-        film.setSchedules(schedules);
+        var film = new Film(filmDto.getId(), filmDto.getName(), filmDto.isShowing());
+        filmRepository.save(film);
     }
 
     public List<Film> findAll() {

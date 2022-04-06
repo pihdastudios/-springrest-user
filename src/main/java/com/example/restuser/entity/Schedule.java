@@ -12,7 +12,7 @@ public class Schedule {
     @Column(name = "id")
     public long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "film_id")
     public Film film;
 

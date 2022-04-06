@@ -6,14 +6,13 @@ public class FilmDto {
     private long id;
     private String name;
     private boolean showing;
-    private List<ScheduleDto> schedules;
+//    private List<ScheduleDto> schedules;
 
     public FilmDto() {}
-    public FilmDto(long id, String name, boolean showing, List<ScheduleDto> schedules) {
+    public FilmDto(long id, String name, boolean showing) {
         this.id = id;
         this.name = name;
         this.showing = showing;
-        this.schedules = schedules;
     }
 
     public long getId() {
@@ -38,13 +37,5 @@ public class FilmDto {
 
     public void setShowing(boolean showing) {
         this.showing = showing;
-    }
-
-    public List<ScheduleDto> getSchedules() {
-        return schedules;
-    }
-
-    public void setSchedules(List<ScheduleDto> schedules) {
-        this.schedules = schedules;
     }
 }

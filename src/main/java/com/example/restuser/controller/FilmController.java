@@ -14,8 +14,8 @@ public class FilmController {
     @Autowired
     FilmService filmService;
 
-    @PostMapping("/film")
-    public void updateFilm(@ModelAttribute("films") FilmDto filmDto) {
+    @PutMapping("/film")
+    public void updateFilm(@RequestBody FilmDto filmDto) {
         filmService.saveFilm(filmDto);
     }
 
@@ -24,8 +24,8 @@ public class FilmController {
         return filmService.findAll();
     }
 
-    @PutMapping("/film")
-    public void saveUser(@RequestBody FilmDto filmDto) {
+    @PostMapping("/film")
+    public void saveFilm(@RequestBody FilmDto filmDto) {
         filmDto.setId(0L);
         filmService.saveFilm(filmDto);
     }

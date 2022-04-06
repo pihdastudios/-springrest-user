@@ -17,16 +17,13 @@ public class Film {
     @Column(name = "showing")
     private boolean showing;
 
-    @OneToMany(mappedBy = "film")
-    private List<Schedule> schedules;
 
     public Film() {}
 
-    public Film(long id, String name, boolean showing, List<Schedule> schedules) {
+    public Film(long id, String name, boolean showing) {
         this.id = id;
         this.name = name;
         this.showing = showing;
-        this.schedules = schedules;
     }
 
     public long getId() {
@@ -51,13 +48,5 @@ public class Film {
 
     public void setShowing(boolean showing) {
         this.showing = showing;
-    }
-
-    public List<Schedule> getSchedules() {
-        return schedules;
-    }
-
-    public void setSchedules(List<Schedule> schedules) {
-        this.schedules = schedules;
     }
 }

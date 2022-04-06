@@ -1,12 +1,16 @@
 package com.example.restuser.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class ScheduleDto {
     public long id;
-    public FilmDto film;
+    public long idFilm;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     public LocalDate startDateTime;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     public LocalDate endDateTime;
     public BigDecimal ticketPrice;
 
@@ -14,9 +18,9 @@ public class ScheduleDto {
 
     }
 
-    public ScheduleDto(long id, FilmDto film, LocalDate startDateTime, LocalDate endDateTime, BigDecimal ticketPrice) {
+    public ScheduleDto(long id, long idFilm, LocalDate startDateTime, LocalDate endDateTime, BigDecimal ticketPrice) {
         this.id = id;
-        this.film = film;
+        this.idFilm = idFilm;
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
         this.ticketPrice = ticketPrice;
@@ -30,12 +34,12 @@ public class ScheduleDto {
         this.id = id;
     }
 
-    public FilmDto getFilm() {
-        return film;
+    public long getFilm() {
+        return idFilm;
     }
 
-    public void setFilm(FilmDto film) {
-        this.film = film;
+    public void setFilm(long idFilm) {
+        this.idFilm = idFilm;
     }
 
     public LocalDate getStartDateTime() {
