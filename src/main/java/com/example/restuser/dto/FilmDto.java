@@ -19,11 +19,11 @@ public class FilmDto {
         this.id = film.getId();
         this.name = film.getName();
         this.showing = film.isShowing();
-    }
-
-    public FilmDto(Film film, List<Schedule> schedules) {
-        this(film);
         film.getSchedules().forEach(schedule -> this.schedules.add(new ScheduleDto(schedule.getId(), schedule.getStartDateTime(), schedule.getEndDateTime(), schedule.getTicketPrice())));
+    }
+    public static FilmDto withoutSchedules(Film film) {
+        film.setSchedules(new ArrayList<>());
+        return new FilmDto(film);
     }
 
     public long getId() {

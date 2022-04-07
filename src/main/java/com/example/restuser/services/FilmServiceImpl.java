@@ -2,7 +2,6 @@ package com.example.restuser.services;
 
 import com.example.restuser.dto.FilmDto;
 import com.example.restuser.entity.Film;
-import com.example.restuser.entity.Schedule;
 import com.example.restuser.repository.FilmRepository;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +36,14 @@ public class FilmServiceImpl implements FilmService {
         }
     }
 
-    public List<FilmDto> listScheduleById() {
-        var filmDtos = new ArrayList<FilmDto>();
-        filmRepository.findFilmsByShowingIsTrue().forEach(film -> filmDtos.add(new FilmDto(film)));
-        return filmDtos;
+    public Optional<FilmDto> listScheduleById(long id) {
+        var film = filmRepository.findById(id);
+        return film.map(FilmDto::new);
     }
 
+    public List<FilmDto> listByShowing() {
+        var filmDtos = new ArrayList<FilmDto>();
+        filmRepository.findFilmsByShowingIsTrue().forEach(film -> filmDtos.add(FilmDto.withoutSchedules(film)));
+        return filmDtos;
+    }
 }

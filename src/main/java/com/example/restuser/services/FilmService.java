@@ -16,5 +16,7 @@ public interface FilmService {
 
     void deleteFilm(long id);
 
-    List<FilmDto> listScheduleById();
+    Optional<FilmDto> listScheduleById(long id);
+
+    List<FilmDto> listByShowing();
 }

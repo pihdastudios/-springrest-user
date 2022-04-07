@@ -1,6 +1,7 @@
 package com.example.restuser.controller;
 
 import com.example.restuser.dto.FilmDto;
+import com.example.restuser.dto.ScheduleDto;
 import com.example.restuser.services.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,13 +35,13 @@ public class FilmController {
         filmService.deleteFilm(id);
     }
 
-//    @GetMapping("(/film/schedule/{id}")
-//    public void listSchedule(@PathVariable long id) {
-//        filmService.listScheduleById(long id);
-//    }
+    @GetMapping("/film/schedule/{id}")
+    public List<ScheduleDto> listScheduleById(@PathVariable long id) {
+        return filmService.listScheduleById(id).get().getSchedules();
+    }
 
     @GetMapping("/showing/films")
     public List<FilmDto> listShowing() {
-        return filmService.listScheduleById();
+        return filmService.listByShowing();
     }
 }
