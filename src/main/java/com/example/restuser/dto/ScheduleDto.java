@@ -8,10 +8,9 @@ import java.time.LocalDateTime;
 
 public class ScheduleDto {
     public long id;
-//    public long idFilm;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yy HH:mm")
     public LocalDateTime startDateTime;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yy HH:mm")
     public LocalDateTime endDateTime;
     public BigDecimal ticketPrice;
 
@@ -33,14 +32,6 @@ public class ScheduleDto {
     public void setId(long id) {
         this.id = id;
     }
-
-//    public long getFilm() {
-//        return idFilm;
-//    }
-//
-//    public void setFilm(long idFilm) {
-//        this.idFilm = idFilm;
-//    }
 
     public LocalDateTime getStartDateTime() {
         return startDateTime;

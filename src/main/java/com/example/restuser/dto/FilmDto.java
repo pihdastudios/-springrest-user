@@ -1,20 +1,25 @@
 package com.example.restuser.dto;
 
+import com.example.restuser.entity.Schedule;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class FilmDto {
     private long id;
     private String name;
     private boolean showing;
-    private List<ScheduleDto> schedules;
+    private List<ScheduleDto> schedules = new ArrayList<>();
 
     public FilmDto() {}
 
-    public FilmDto(long id, String name, boolean showing, List<ScheduleDto> schedules) {
+    public FilmDto(long id, String name, boolean showing, List<Schedule> schedules) {
         this.id = id;
         this.name = name;
         this.showing = showing;
-        this.schedules = schedules;
+        schedules.forEach(schedule -> {
+            this.schedules.add(new ScheduleDto(schedule.getId(), schedule.getStartDateTime(), schedule.getEndDateTime(), schedule.getTicketPrice()));
+        });
     }
 
     public long getId() {

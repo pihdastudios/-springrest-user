@@ -13,7 +13,7 @@ public class Schedule {
     @Column(name = "id")
     public long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "film_id")
     public Film film;
 
@@ -25,7 +25,8 @@ public class Schedule {
     @Column(name = "ticket_price")
     public BigDecimal ticketPrice;
 
-    public Schedule() {}
+    public Schedule() {
+    }
 
     public Schedule(long id, Film film, LocalDateTime startDateTime, LocalDateTime endDateTime, BigDecimal ticketPrice) {
         this.id = id;
@@ -73,17 +74,6 @@ public class Schedule {
 
     public void setTicketPrice(BigDecimal ticketPrice) {
         this.ticketPrice = ticketPrice;
-    }
-
-    @Override
-    public String toString() {
-        return "Schedule{" +
-                "id=" + id +
-                ", film=" + film +
-                ", startDateTime=" + startDateTime +
-                ", endDateTime=" + endDateTime +
-                ", ticketPrice=" + ticketPrice +
-                '}';
     }
 }
 

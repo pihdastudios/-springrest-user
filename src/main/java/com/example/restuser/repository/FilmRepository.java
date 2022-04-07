@@ -1,6 +1,7 @@
 package com.example.restuser.repository;
 
 import com.example.restuser.entity.Film;
+import com.example.restuser.entity.Schedule;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

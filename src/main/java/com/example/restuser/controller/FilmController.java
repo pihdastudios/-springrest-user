@@ -34,4 +34,14 @@ public class FilmController {
     public void deleteUser(@PathVariable long id) {
         filmService.deleteFilm(id);
     }
+
+//    @GetMapping("(/film/schedule/{id}")
+//    public void listSchedule(@PathVariable long id) {
+//        filmService.listScheduleById(long id);
+//    }
+
+    @GetMapping("/showing/films")
+    public List<FilmDto> listShowing() {
+        return filmService.listScheduleById();
+    }
 }

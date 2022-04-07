@@ -24,7 +24,6 @@ public class FilmServiceImpl implements FilmService {
             var schedule = new Schedule(scheduleDto.getId(), film, scheduleDto.getStartDateTime(), scheduleDto.getEndDateTime(), scheduleDto.getTicketPrice());
             schedules.add(schedule);
         });
-        System.out.println(schedules);
         film.setSchedules(schedules);
         filmRepository.save(film);
     }
@@ -40,4 +39,14 @@ public class FilmServiceImpl implements FilmService {
             filmRepository.deleteById(id);
         }
     }
+
+    @Override
+    public List<FilmDto> listScheduleById() {
+        var filmDtos = new ArrayList<FilmDto>();
+        filmRepository.findFilmsByShowingIsTrue().forEach(film -> {
+            filmDtos.add(new FilmDto(film.getId(), film.getName(), film.isShowing(), film.getSchedules()));
+        });
+        return filmDtos;
+    }
+
 }
