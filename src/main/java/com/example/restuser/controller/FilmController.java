@@ -20,7 +20,7 @@ public class FilmController {
     }
 
     @GetMapping("/films")
-    public List<Film> listFilms() {
+    public List<FilmDto> listFilms() {
         return filmService.findAll();
     }
 

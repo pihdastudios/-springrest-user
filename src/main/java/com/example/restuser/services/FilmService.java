@@ -11,8 +11,8 @@ import java.util.Optional;
 public interface FilmService {
     void saveFilm(FilmDto filmDto);
 
-    List<Film> findAll();
-    Optional<Film> findById(long id);
+    List<FilmDto> findAll();
+    Optional<FilmDto> findById(long id);
     void deleteFilm(long id);
 
     List<FilmDto> listScheduleById();

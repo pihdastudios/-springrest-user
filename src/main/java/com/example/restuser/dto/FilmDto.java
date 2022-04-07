@@ -1,5 +1,6 @@
 package com.example.restuser.dto;
 
+import com.example.restuser.entity.Film;
 import com.example.restuser.entity.Schedule;
 
 import java.util.ArrayList;
@@ -11,15 +12,14 @@ public class FilmDto {
     private boolean showing;
     private List<ScheduleDto> schedules = new ArrayList<>();
 
-    public FilmDto() {}
+    public FilmDto() {
+    }
 
-    public FilmDto(long id, String name, boolean showing, List<Schedule> schedules) {
-        this.id = id;
-        this.name = name;
-        this.showing = showing;
-        schedules.forEach(schedule -> {
-            this.schedules.add(new ScheduleDto(schedule.getId(), schedule.getStartDateTime(), schedule.getEndDateTime(), schedule.getTicketPrice()));
-        });
+    public FilmDto(Film film) {
+        this.id = film.getId();
+        this.name = film.getName();
+        this.showing = film.isShowing();
+        film.getSchedules().forEach(schedule -> this.schedules.add(new ScheduleDto(schedule.getId(), schedule.getStartDateTime(), schedule.getEndDateTime(), schedule.getTicketPrice())));
     }
 
     public long getId() {

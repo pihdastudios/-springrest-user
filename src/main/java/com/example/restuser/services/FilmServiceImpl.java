@@ -28,11 +28,13 @@ public class FilmServiceImpl implements FilmService {
         filmRepository.save(film);
     }
 
-    public List<Film> findAll() {
-        return filmRepository.findAll();
+    public List<FilmDto> findAll() {
+        var filmDtos = new ArrayList<FilmDto>();
+        filmRepository.findAll().forEach(film -> filmDtos.add(new FilmDto(film)));
+        return filmDtos;
     }
-    public Optional<Film> findById(long id) {
-        return filmRepository.findById(id);
+    public Optional<FilmDto> findById(long id) {
+        return filmRepository.findById(id).map(FilmDto::new);
     }
     public void deleteFilm(long id) {
         if (filmRepository.findById(id).isPresent()) {
@@ -44,7 +46,7 @@ public class FilmServiceImpl implements FilmService {
     public List<FilmDto> listScheduleById() {
         var filmDtos = new ArrayList<FilmDto>();
         filmRepository.findFilmsByShowingIsTrue().forEach(film -> {
-            filmDtos.add(new FilmDto(film.getId(), film.getName(), film.isShowing(), film.getSchedules()));
+            filmDtos.add(new FilmDto(film));
         });
         return filmDtos;
     }
