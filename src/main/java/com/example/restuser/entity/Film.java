@@ -17,13 +17,18 @@ public class Film {
     @Column(name = "showing")
     private boolean showing;
 
+    @Column(name = "schedules")
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name = "film_id")
+    private List<Schedule> schedules;
 
     public Film() {}
 
-    public Film(long id, String name, boolean showing) {
+    public Film(long id, String name, boolean showing, List<Schedule> schedules) {
         this.id = id;
         this.name = name;
         this.showing = showing;
+        this.schedules = schedules;
     }
 
     public long getId() {
@@ -48,5 +53,23 @@ public class Film {
 
     public void setShowing(boolean showing) {
         this.showing = showing;
+    }
+
+    public List<Schedule> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", showing=" + showing +
+                ", schedules=" + schedules +
+                '}';
     }
 }

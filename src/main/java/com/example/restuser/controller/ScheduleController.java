@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 public class ScheduleController {
-    @Autowired
-    ScheduleService scheduleService;
-
-    @PostMapping("/schedule")
-    public void saveSchedule(@RequestBody ScheduleDto scheduleDto) {
-        scheduleService.saveSchedule(scheduleDto);
-    }
+//    @Autowired
+//    ScheduleService scheduleService;
+//
+//    @PostMapping("/schedule")
+//    public void saveSchedule(@RequestBody ScheduleDto scheduleDto) {
+//        scheduleService.saveSchedule(scheduleDto);
+//    }
 }

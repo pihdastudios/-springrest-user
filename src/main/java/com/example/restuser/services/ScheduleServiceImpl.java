@@ -6,7 +6,9 @@ import com.example.restuser.repository.FilmRepository;
 import com.example.restuser.repository.ScheduleRepository;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ScheduleServiceImpl implements ScheduleService {
     @Autowired
     ScheduleRepository scheduleRepository;
@@ -14,7 +16,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     FilmRepository filmRepository;
 
     public void saveSchedule(ScheduleDto scheduleDto) {
-        var schedule = new Schedule(0L, filmRepository.getById(scheduleDto.getFilm()), scheduleDto.getStartDateTime(), scheduleDto.getEndDateTime(), scheduleDto.getTicketPrice());
-        scheduleRepository.save(schedule);
+//        var schedule = new Schedule(0L, scheduleDto.getStartDateTime(), scheduleDto.getEndDateTime(), scheduleDto.getTicketPrice());
+//        scheduleRepository.save(schedule);
     }
 }

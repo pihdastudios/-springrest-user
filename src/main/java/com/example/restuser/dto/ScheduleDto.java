@@ -4,23 +4,23 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ScheduleDto {
     public long id;
-    public long idFilm;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    public LocalDate startDateTime;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    public LocalDate endDateTime;
+//    public long idFilm;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    public LocalDateTime startDateTime;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    public LocalDateTime endDateTime;
     public BigDecimal ticketPrice;
 
     public ScheduleDto() {
 
     }
 
-    public ScheduleDto(long id, long idFilm, LocalDate startDateTime, LocalDate endDateTime, BigDecimal ticketPrice) {
+    public ScheduleDto(long id, LocalDateTime startDateTime, LocalDateTime endDateTime, BigDecimal ticketPrice) {
         this.id = id;
-        this.idFilm = idFilm;
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
         this.ticketPrice = ticketPrice;
@@ -34,27 +34,27 @@ public class ScheduleDto {
         this.id = id;
     }
 
-    public long getFilm() {
-        return idFilm;
-    }
+//    public long getFilm() {
+//        return idFilm;
+//    }
+//
+//    public void setFilm(long idFilm) {
+//        this.idFilm = idFilm;
+//    }
 
-    public void setFilm(long idFilm) {
-        this.idFilm = idFilm;
-    }
-
-    public LocalDate getStartDateTime() {
+    public LocalDateTime getStartDateTime() {
         return startDateTime;
     }
 
-    public void setStartDateTime(LocalDate startDateTime) {
+    public void setStartDateTime(LocalDateTime startDateTime) {
         this.startDateTime = startDateTime;
     }
 
-    public LocalDate getEndDateTime() {
+    public LocalDateTime getEndDateTime() {
         return endDateTime;
     }
 
-    public void setEndDateTime(LocalDate endDateTime) {
+    public void setEndDateTime(LocalDateTime endDateTime) {
         this.endDateTime = endDateTime;
     }
 
@@ -64,5 +64,15 @@ public class ScheduleDto {
 
     public void setTicketPrice(BigDecimal ticketPrice) {
         this.ticketPrice = ticketPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "ScheduleDto{" +
+                "id=" + id +
+                ", startDateTime=" + startDateTime +
+                ", endDateTime=" + endDateTime +
+                ", ticketPrice=" + ticketPrice +
+                '}';
     }
 }
