@@ -10,8 +10,11 @@ import java.util.Optional;
 @Service
 public interface UserService {
     void saveUser(UserDto userDto);
+
     List<User> findAll();
+
     Optional<User> findByid(long id);
+
     void deleteUser(long id);
 
 }

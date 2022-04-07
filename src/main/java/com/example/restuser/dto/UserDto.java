@@ -6,7 +6,9 @@ public class UserDto {
     private String email;
     private String password;
 
-    public UserDto(){}
+    public UserDto() {
+    }
+
     public UserDto(long id, String username, String email, String password) {
         this.id = id;
         this.username = username;

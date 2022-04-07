@@ -1,6 +1,10 @@
 package com.example.restuser.entity;
 
+import com.example.restuser.dto.FilmDto;
+import lombok.var;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,13 +25,23 @@ public class Film {
     @OneToMany(mappedBy = "film", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Schedule> schedules;
 
-    public Film() {}
+    public Film() {
+    }
 
-    public Film(long id, String name, boolean showing, List<Schedule> schedules) {
+    public Film(long id, String name, boolean showing) {
         this.id = id;
         this.name = name;
         this.showing = showing;
-        this.schedules = schedules;
+    }
+
+    public Film(FilmDto filmDto) {
+        this(filmDto.getId(), filmDto.getName(), filmDto.isShowing());
+        List<Schedule> schedules = new ArrayList<>();
+        filmDto.getSchedules().forEach(scheduleDto -> {
+            var schedule = new Schedule(scheduleDto.getId(), this, scheduleDto.getStartDateTime(), scheduleDto.getEndDateTime(), scheduleDto.getTicketPrice());
+            schedules.add(schedule);
+        });
+        this.setSchedules(schedules);
     }
 
     public long getId() {
