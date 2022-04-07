@@ -1,6 +1,7 @@
 package com.example.restuser.services;
 
 import com.example.restuser.dto.FilmDto;
+import com.example.restuser.dto.ScheduleDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface FilmService {
 
     void deleteFilm(long id);
 
-    Optional<FilmDto> listScheduleById(long id);
+    Optional<List<ScheduleDto>> listScheduleById(long id);
 
     List<FilmDto> listByShowing();
 }

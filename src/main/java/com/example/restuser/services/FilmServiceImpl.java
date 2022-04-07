@@ -1,6 +1,7 @@
 package com.example.restuser.services;
 
 import com.example.restuser.dto.FilmDto;
+import com.example.restuser.dto.ScheduleDto;
 import com.example.restuser.entity.Film;
 import com.example.restuser.repository.FilmRepository;
 import lombok.var;
@@ -36,14 +37,23 @@ public class FilmServiceImpl implements FilmService {
         }
     }
 
-    public Optional<FilmDto> listScheduleById(long id) {
+    public Optional<List<ScheduleDto>> listScheduleById(long id) {
+        Optional<List<ScheduleDto>> ret = Optional.of(new ArrayList<>());
         var film = filmRepository.findById(id);
-        return film.map(FilmDto::new);
+        film.map(FilmDto::new).ifPresent(filmDto -> {
+            filmDto.getSchedules().forEach(scheduleDto -> {
+                ret.get().add(scheduleDto);
+            });
+        });
+        return ret;
     }
 
     public List<FilmDto> listByShowing() {
         var filmDtos = new ArrayList<FilmDto>();
-        filmRepository.findFilmsByShowingIsTrue().forEach(film -> filmDtos.add(FilmDto.withoutSchedules(film)));
+        filmRepository.findFilmsByShowingIsTrue().forEach(film -> {
+            film.setSchedules(new ArrayList<>());
+            filmDtos.add(new FilmDto(film));
+        });
         return filmDtos;
     }
 }
