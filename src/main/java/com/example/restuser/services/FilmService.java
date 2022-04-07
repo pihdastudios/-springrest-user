@@ -13,24 +13,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class FilmService {
-    @Autowired
-    FilmRepository filmRepository;
+public interface FilmService {
+    void saveFilm(FilmDto filmDto);
 
-    public void saveFilm(FilmDto filmDto) {
-        var film = new Film(filmDto.getId(), filmDto.getName(), filmDto.isShowing());
-        filmRepository.save(film);
-    }
-
-    public List<Film> findAll() {
-        return filmRepository.findAll();
-    }
-    public Optional<Film> findById(long id) {
-        return filmRepository.findById(id);
-    }
-    public void deleteFilm(long id) {
-        if (filmRepository.findById(id).isPresent()) {
-            filmRepository.deleteById(id);
-        }
-    }
+    List<Film> findAll();
+    Optional<Film> findById(long id);
+    void deleteFilm(long id);
 }
