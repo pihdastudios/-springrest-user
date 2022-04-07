@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 public class ScheduleDto {
     public long id;
 //    public long idFilm;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yy-MM-dd HH:mm")
     public LocalDateTime startDateTime;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yy-MM-dd HH:mm")
     public LocalDateTime endDateTime;
     public BigDecimal ticketPrice;
 
