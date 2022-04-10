@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "79a6e638-9644-4da2-b34d-02b3ba7e736f",
+		"name": "Binar ticketing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/api/film",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Batman Dark Knight\",\n    \"showing\": true,\n    \"schedules\": \n    [\n        {\n            \"startDateTime\": \"07-04-22 14:00\",\n            \"endDateTime\": \"07-04-22 16:00\",\n            \"ticketPrice\": 10000000\n        },\n        {\n            \"startDateTime\": \"08-04-22 14:00\",\n            \"endDateTime\": \"08-04-22 16:00\",\n            \"ticketPrice\": 500000\n        },\n        {\n            \"startDateTime\": \"09-04-22 14:00\",\n            \"endDateTime\": \"09-04-22 16:00\",\n            \"ticketPrice\": 10000\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/film",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"film"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "batman",
+							"disabled": true
+						},
+						{
+							"key": "showing",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "schedules",
+							"value": "null",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/film",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"name\": \"Monsters\",\n    \"showing\": true,\n    \"schedules\": \n    [\n        {\n            \"startDateTime\": \"07-04-22 14:00\",\n            \"endDateTime\": \"07-04-22 16:00\",\n            \"ticketPrice\": 10000000\n        },\n        {\n            \"startDateTime\": \"08-04-22 14:00\",\n            \"endDateTime\": \"08-04-22 16:00\",\n            \"ticketPrice\": 500000\n        },\n        {\n            \"startDateTime\": \"09-04-22 14:00\",\n            \"endDateTime\": \"09-04-22 16:00\",\n            \"ticketPrice\": 10000\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/film",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"film"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/showing/films",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/showing/films",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"showing",
+						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/film",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"Batman\",\n    \"showing\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/film",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"film"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/film/schedule/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/film/schedule/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"film",
+						"schedule",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
