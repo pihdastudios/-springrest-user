@@ -40,11 +40,7 @@ public class FilmServiceImpl implements FilmService {
     public Optional<List<ScheduleDto>> listScheduleById(long id) {
         Optional<List<ScheduleDto>> ret = Optional.of(new ArrayList<>());
         var film = filmRepository.findById(id);
-        film.map(FilmDto::new).ifPresent(filmDto -> {
-            filmDto.getSchedules().forEach(scheduleDto -> {
-                ret.get().add(scheduleDto);
-            });
-        });
+        film.map(FilmDto::new).ifPresent(filmDto -> filmDto.getSchedules().forEach(scheduleDto -> ret.get().add(scheduleDto)));
         return ret;
     }
 

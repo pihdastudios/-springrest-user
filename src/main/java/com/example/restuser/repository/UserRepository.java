@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 @Transactional
 public interface UserRepository extends JpaRepository<User, Long> {
-    public List<User> findAllByOrderByIdAsc();
+    List<User> findAllByOrderByIdAsc();
 }
